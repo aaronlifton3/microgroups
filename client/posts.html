@@ -35,15 +35,12 @@
         <div class="three columns pull-six">
             <div id="groups" class="panel">
                 <h5 id="greeting">
-                    <a href="#">
-
                     {{#if currentUser}}
+                    <a href="#">
                         Hello,
                         {{currentUser.profile.name}}
-                    {{else}}
-                        {{loginButtons}}
-                    {{/if}}
-                </a>
+                    </a>
+                    {{else}} {{loginButtons}} {{/if}}
                 </h5>
                 <h3>
                     Groups
@@ -72,7 +69,7 @@
             <div class="row">
                 <div class="six columns">
                     <p>
-                        &copy; Copyright no one at all. Go to town.
+                        &copy; Copyright Aaron Lifton 2012+.
                     </p>
                 </div>
                 <div class="six columns">
