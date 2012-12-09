@@ -1,0 +1,144 @@
+#help {
+    padding: 8px;
+}
+
+#main-pane {
+    /*top: 45px;
+    bottom: 0;
+    left: 220px;
+    overflow: auto;*/
+}
+
+#side-pane {
+    /*width: 200px;
+    right: auto;
+    overflow: auto;
+    background: #eee;
+    border-right: 1px solid #999;
+    background: #ddd;*/
+}
+
+/*.tag {
+    cursor: pointer;
+    float: left;
+    margin: 5px;
+    padding: 2px 7px;
+    font-size: 80%;
+    font-weight: bold;
+    background: #999;
+    color: #fff;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+
+    opacity: 1;
+    transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+
+    position: relative;
+	}*/
+
+#groups .group {
+    padding: 3px 6px;
+}
+
+#groups .selected {
+    font-weight: bold;
+}
+
+#groups .group-name {
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+}
+
+#createGroup {
+    padding: 3px 6px;
+    margin-top: 5px;
+}
+
+#createGroup input {
+    width: 180px;
+}
+
+#new-post-box {
+	margin: 10px;
+    height: 40px;
+}
+
+#new-post {
+
+}
+
+#items-view {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#item-group .post {
+    display: block;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #ccc;
+}
+
+#item-group .post .destroy {
+    cursor: pointer;
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    height: 20px;
+    width: 20px;
+}
+
+#item-group .post .display, #item-group .post .edit {
+    margin-left: 30px;
+    height: 100%;
+    width: auto;
+    float: left;
+    padding-top: 18px;
+    line-height: 1;
+}
+
+#post-input {
+    width: 300px;
+    position: relative;
+    top: -3px;
+}
+
+#item-group .done .post-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+#item-group .post:hover .destroy {
+    background: url('/destroy.png') no-repeat 0 0;
+}
+
+#item-group .post .destroy:hover {
+    background-position: 0 -20px;
+}
+
+#item-group .post .check {
+    float: left;
+    width: 25px;
+}
+
+#item-group .post .post-text {
+    float: left;
+    margin-left: 10px;
+    font-size: 100%;
+}
+
+#item-group .post .edit input {
+    margin-left: 35px;
+}
+
+#login-buttons {
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
