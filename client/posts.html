@@ -45,13 +45,7 @@
                 <h3>
                     Groups
                 </h3>
-                <dl class="vertical tabs">
-                    {{> groups}}
-                </dl>
-                <div id="createGroup">
-                    <input type="text" id="new-group" placeholder="New group" />
-                    <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
-                </div>
+                {{> groups}}
             </div>
         </div>
         <aside class="three columns hide-for-small">
@@ -79,20 +73,26 @@
     </footer>
 </body>
 <template name="groups">
-    {{#each groups}}
-    <dd class="group {{selected}}">
-        {{#if editing}}
-        <div class="edit">
-            <input class="group-name-input" id="group-name-input" type="text" value="{{name}}"
-            />
-        </div>
-        {{else}}
-        <a class="group-name {{name_class}}" href="/{{_id}}">
+    <dl id="group-list" class="vertical tabs">
+        {{#each groups}}
+        <dd class="group {{selected}}">
+            {{#if editing}}
+            <div class="edit">
+                <input class="group-name-input" id="group-name-input" type="text" value="{{name}}"
+                />
+            </div>
+            {{else}}
+            <a class="group-name {{name_class}}" href="/{{_id}}">
             {{name}}
           </a>
-        {{/if}}
-    </dd>
-    {{/each}}
+            {{/if}}
+        </dd>
+        {{/each}}
+    </dl>
+    <div id="createGroup">
+            <input type="text" id="new-group" placeholder="New group" />
+            <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
+        </div>
 </template>
 <template name="posts">
     {{#if any_group_selected}}

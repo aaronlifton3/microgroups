@@ -58,8 +58,10 @@
 }
 
 #createGroup {
-    padding: 0;
+    padding:0;
 }
+
+#group-list > :last-child a {}
 
 #createGroup input {
     width: 180px;
