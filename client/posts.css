@@ -97,6 +97,7 @@
     padding-top: 20px;
     line-height: 1;
 }
+.display {width:100%;}
 
 #post-input {
     width: 300px;
@@ -127,6 +128,37 @@
 }
 
 #login-buttons {
-	margin-left: 20px;
+	margin: 0 auto;
 	margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
 }
+
+#microgroups_description {
+    -webkit-background-clip: border-box;
+-webkit-background-origin: padding-box;
+-webkit-background-size: auto;
+-webkit-font-smoothing: antialiased;
+color: #6F6F6F;
+direction: ltr;
+display: block;
+font-family: OpenSans;
+font-size: 17px;
+font-style: normal;
+font-weight: 300;
+height: 44px;
+line-height: 22px;
+margin-bottom: 17px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 14px;
+}
+
+/*#microgroups-description p,h4,h5 {
+    text-align:center;
+}*/
+
+#greeting {text-align:left;}
+#post-form {margin:0;text-align:center;}
+#post-form #new-post-box {margin:10px 0;}
+#post_item_inner {text-align:left;}
