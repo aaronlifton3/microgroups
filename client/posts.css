@@ -41,8 +41,10 @@
     position: relative;
 	}*/
 
+#groups {margin-bottom:10px;}
+
 #groups .group {
-    padding: 3px 6px;
+    padding: 0;
 }
 
 #groups .selected {
@@ -56,8 +58,7 @@
 }
 
 #createGroup {
-    padding: 3px 6px;
-    margin-top: 5px;
+    padding: 0;
 }
 
 #createGroup input {
@@ -134,10 +135,7 @@
     text-align: center;
 }
 
-#microgroups_description {
-    -webkit-background-clip: border-box;
--webkit-background-origin: padding-box;
--webkit-background-size: auto;
+#microgroups-description {
 -webkit-font-smoothing: antialiased;
 color: #6F6F6F;
 direction: ltr;
@@ -146,12 +144,8 @@ font-family: OpenSans;
 font-size: 17px;
 font-style: normal;
 font-weight: 300;
-height: 44px;
 line-height: 22px;
-margin-bottom: 17px;
-margin-left: 0px;
-margin-right: 0px;
-margin-top: 14px;
+margin:0 15px 10px 15px !important;
 }
 
 /*#microgroups-description p,h4,h5 {

@@ -3,7 +3,8 @@
         Posts
     </title>
     <link href="client/layout.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700'
+    rel='stylesheet' type='text/css'>
 </head>
 <body>
     <div class="row">
@@ -15,15 +16,20 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="six columns push-three">
             <div class="row">
-        <div id="microgroups-description" class="panel .four.columns.centered">
-                <h3>Simple Talk</h3>
-                <h5 class="subheader">Pick a group. Post something.<br />Create your own group. Invite your friends.</h5>
-        </div>
-    </div>
+                <div id="microgroups-description" class="panel">
+                    <h3>
+                        Simple Talk
+                    </h3>
+                    <h5 class="subheader">
+                        Pick a group. Post something.
+                        <br />
+                        Create your own group. Invite your friends.
+                    </h5>
+                </div>
+            </div>
             {{> posts}}
         </div>
         <div class="three columns pull-six">
@@ -39,12 +45,16 @@
                     {{/if}}
                 </a>
                 </h5>
+                <h3>
+                    Groups
+                </h3>
                 <dl class="vertical tabs">
-                    <h3>
-                        Groups
-                    </h3>
                     {{> groups}}
                 </dl>
+                <div id="createGroup">
+                    <input type="text" id="new-group" placeholder="New group" />
+                    <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
+                </div>
             </div>
         </div>
         <aside class="three columns hide-for-small">
@@ -80,16 +90,12 @@
             />
         </div>
         {{else}}
-            <a class="group-name {{name_class}}" href="/{{_id}}">
+        <a class="group-name {{name_class}}" href="/{{_id}}">
             {{name}}
           </a>
         {{/if}}
     </dd>
     {{/each}}
-    <div id="createList">
-        <input type="text" id="new-group" placeholder="New group" />
-        <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
-    </div>
 </template>
 <template name="posts">
     {{#if any_group_selected}}
@@ -98,11 +104,11 @@
             <input type="text" id="new-post" placeholder="New post" />
             <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
         </div>
-        <ul id="item-group">
-            {{#each posts}} {{> post_item}} {{/each}}
-        </ul>
     </div>
     {{/if}}
+    <ul id="item-group">
+        {{#each posts}} {{> post_item}} {{/each}}
+    </ul>
 </template>
 <template name="post_item">
     <div class="row">
@@ -133,7 +139,6 @@
             </div>
         </div>
 </template>
-
 <template name="reply">
     {{#if childitem}}
     <div class="row reply-row">

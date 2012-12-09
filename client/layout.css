@@ -761,7 +761,7 @@ ul.block-grid[data-clearing] { overflow: visible; }
 .tabs dd.active, .tabs li.active { border-top: 3px solid #2ba6cb; margin-top: -3px; }
 .tabs dd.active a, .tabs li.active a { cursor: default; color: #3c3c3c; background: #fff; border-left: 1px solid #e6e6e6; border-right: 1px solid #e6e6e6; font-weight: bold; }
 .tabs dd:first-child, .tabs li:first-child { margin-left: 0; }
-.tabs.vertical { height: auto; border-bottom: 1px solid #e6e6e6; }
+.tabs.vertical { height: auto; border-bottom: 1px solid #e6e6e6; margin-bottom: 10px; }
 .tabs.vertical dt, .tabs.vertical dd, .tabs.vertical li { float: none; height: auto; }
 .tabs.vertical dd, .tabs.vertical li { border-left: 3px solid #cccccc; }
 .tabs.vertical dd a, .tabs.vertical li a { background: #f2f2f2; border: none; border: 1px solid #e6e6e6; border-width: 1px 1px 0 0; color: #555; display: block; font-size: 14px; height: auto; line-height: 1; padding: 15px 20px; -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
