@@ -1,184 +1,175 @@
 <head>
-  <title>Posts</title>
-  <link href="client/layout.css" rel="stylesheet"/>
+    <title>
+        Posts
+    </title>
+    <link href="client/layout.css" rel="stylesheet" />
 </head>
-
 <body>
-	<!-- Header and Nav -->
-  
-	  <div class="row">
-	    <div class="twelve columns">
-	      <div class="panel">
-	        <h1>Microgroups</h1>
-	      </div>
-	    </div>
-	  </div>
-  
-	  <!-- End Header and Nav -->
-  
-  
-	  <div class="row">    
-    
-	    <!-- Main Feed -->
-	    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-	    <div class="six columns push-three">
-   	      {{> posts}}      
-	 	</div>
-    
-	    <!-- Nav Sidebar -->
-	    <!-- This is source ordered to be pulled to the left on larger screens -->
-	    <div class="three columns pull-six">
-	      <div id="groups" class="panel">
-	        <h5>Hello, 
-				<a href="#">
-					{{#if currentUser}}
-						{{currentUser.profile.name}}
-					{{/if}}
-				</a>
-			</h5>
-        
-	        <dl class="vertical tabs">
-				{{> groups}}
-	        </dl>
-        
-	      </div>
-	    </div>
-    
-    
-	    <!-- Right Sidebar -->
-	    <!-- On small devices this column is hidden -->
-		<aside class="microgroups_login">
-			{{loginButtons}}
-		</aside>
-	    <aside class="three columns hide-for-small">
-	      <p><img src="http://placehold.it/300x440&text=[ad]" /></p>
-	      <p><img src="http://placehold.it/300x440&text=[ad]" /></p>
-	    </aside>
-    
-	  </div>
-    
-  
-	  <!-- Footer -->
-  
-	  <footer class="row">
-	    <div class="twelve columns">
-	      <hr />
-	      <div class="row">
-	        <div class="six columns">
-	          <p>&copy; Copyright no one at all. Go to town.</p>
-	        </div>
-	        <div class="six columns">
-	          
-	        </div>
-	      </div>
-	    </div> 
-	  </footer>
-  </body>
-
-<template name="groups">
-  <h3>Groups</h3>
-  <ul class="link-list right">
-      {{#each groups}}
-        <dd class="group {{selected}}">
-          {{#if editing}}
-            <div class="edit">
-              <input class="group-name-input" id="group-name-input" type="text" value="{{name}}" />
+    <div class="row">
+        <div class="twelve columns">
+            <div class="panel">
+                <h1>
+                    Microgroups
+                </h1>
             </div>
-          {{else}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns push-three">
+            {{> posts}}
+        </div>
+        <div class="three columns pull-six">
+            <div id="groups" class="panel">
+                <h5>
+                    Hello,
+                    <a href="#">
+                    {{#if currentUser}}
+                        {{currentUser.profile.name}}
+                    {{/if}}
+                </a>
+                </h5>
+                <dl class="vertical tabs">
+                    {{> groups}}
+                </dl>
+            </div>
+        </div>
+        <aside class="microgroups_login">
+            {{loginButtons}}
+        </aside>
+        <aside class="three columns hide-for-small">
+            <p>
+                <img src="http://placehold.it/300x440&text=[ad]" />
+            </p>
+            <p>
+                <img src="http://placehold.it/300x440&text=[ad]" />
+            </p>
+        </aside>
+    </div>
+    <footer class="row">
+        <div class="twelve columns">
+            <hr />
+            <div class="row">
+                <div class="six columns">
+                    <p>
+                        &copy; Copyright no one at all. Go to town.
+                    </p>
+                </div>
+                <div class="six columns">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<template name="groups">
+    <h3>
+        Groups
+    </h3>
+    <ul class="link-list right">
+        {{#each groups}}
+        <dd class="group {{selected}}">
+            {{#if editing}}
+            <div class="edit">
+                <input class="group-name-input" id="group-name-input" type="text" value="{{name}}"
+                />
+            </div>
+            {{else}}
             <div class="display">
-              <a class="group-name {{name_class}}" href="/{{_id}}">
+                <a class="group-name {{name_class}}" href="/{{_id}}">
                 {{name}}
               </a>
             </div>
-          {{/if}}
+            {{/if}}
         </dd>
-      {{/each}}
-  </ul>
-  <div id="createList">
-    <input type="text" id="new-group" placeholder="New group" />
-	<input id="post-userid" type="hidden" value="{{currentUser._id}}" />
-  </div>
-</template>
-
-<template name="posts">
-  {{#if any_group_selected}}
-  <div id="items-view">
-    <div id="new-post-box">
-      <input type="text" id="new-post" placeholder="New post" />
-	  <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
-    </div>
-    <ul id="item-group">
-      {{#each posts}}
-        {{> post_item}}
-      {{/each}}
+        {{/each}}
     </ul>
-  </div>
-  {{/if}}
+    <div id="createList">
+        <input type="text" id="new-group" placeholder="New group" />
+        <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
+    </div>
 </template>
-
+<template name="posts">
+    {{#if any_group_selected}}
+    <div id="items-view">
+        <div id="new-post-box">
+            <input type="text" id="new-post" placeholder="New post" />
+            <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
+        </div>
+        <ul id="item-group">
+            {{#each posts}} {{> post_item}} {{/each}}
+        </ul>
+    </div>
+    {{/if}}
+</template>
 <template name="post_item">
     <div class="row">
-      <div class="two columns mobile-one"><img src="http://placehold.it/80x80&text=[img]" /></div>
-      <div class="ten columns">
-        <span id="post-{{_id}}"><strong>{{username}}</strong></span>
-		<div class="post_item_inner">
-		    {{#if editing}}
-		      <div class="edit">
-		        <input id="post-input" type="text" value="{{text}}" />
-				<input id="post-userid" type="hidden" value="{{username}}" />
-		      </div>
-		      {{else}}
-		        <div class="destroy"></div>
-		        <div class="display">
-		          <div class="post-text">{{text}}</div>
-		        </div>
-		      {{/if}}    
-		</div>
-        <ul class="link-list">
-          <li><a class="reply" href="">Reply</a></li>
-        </ul>
-		{{#if replying}}
-		    <div id="reply-post-box">
-		      <input type="text" id="reply-post-{{_id}}" placeholder="New post" />
-			  <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
-			  <input id="post-parentid" type="hidden" value="{{_id}}" />			  
-		    </div>
-		{{/if}}
-		{{#each replies}}
-			{{> reply}}
-		{{/each}}
-	</div>
+        <div class="two columns mobile-one">
+            <img src="http://placehold.it/80x80&text=[img]" />
+        </div>
+        <div class="ten columns">
+            <span id="post-{{_id}}">
+                <strong>
+                    {{#if username}}{{username}}{{else}}Anonymous{{/if}}
+                </strong>
+            </span>
+            <div class="post_item_inner">
+                {{#if editing}}
+                <div class="edit">
+                    <input id="post-input" type="text" value="{{text}}" />
+                    <input id="post-userid" type="hidden" value="{{username}}" />
+                </div>
+                {{else}}
+                <div class="destroy">
+                </div>
+                <div class="display">
+                    <div class="post-text">
+                        {{text}}
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
 </template>
 
 <template name="reply">
-	{{#if childitem}}
+    {{#if childitem}}
     <div class="row reply-row">
-      <div class="two columns mobile-one"><img src="http://placehold.it/80x80&text=[img]" /></div>
-      <div class="ten columns">
-        <span id="post-{{_id}}"><strong>{{username}}</strong></span>
-		<div class="post_item_inner">
-		    {{#if editing}}
-		      <div class="edit">
-		        <input id="post-input" type="text" value="{{text}}" />
-				<input id="post-userid" type="hidden" value="{{username}}" />
-		      </div>
-		      {{else}}
-		        <div class="destroy"></div>
-		        <div class="display">
-		          <div class="post-text">{{text}}</div>
-		        </div>
-		      {{/if}}    
-		</div>
-        <ul class="link-list">
-          <li><a class="reply" href="">Reply</a></li>
-        </ul>
-		{{#if replying}}
-		    <div id="reply-post-box">
-		      <input id="reply-post" type="text" placeholder="Reply to post" />
-			  <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
-			  <input id="post-parentid" type="hidden" value="{{_id}}" />			  
-		    </div>
-		{{/if}}
-	</div>
-	{{/if}}
+        <div class="two columns mobile-one">
+            <img src="http://placehold.it/80x80&text=[img]" />
+        </div>
+        <div class="ten columns">
+            <span id="post-{{_id}}">
+                <strong>
+                    {{username}}
+                </strong>
+            </span>
+            <div class="post_item_inner">
+                {{#if editing}}
+                <div class="edit">
+                    <input id="post-input" type="text" value="{{text}}" />
+                    <input id="post-userid" type="hidden" value="{{username}}" />
+                </div>
+                {{else}}
+                <div class="destroy">
+                </div>
+                <div class="display">
+                    <div class="post-text">
+                        {{text}}
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+            <ul class="link-list">
+                <li>
+                    <a class="reply" href="">Reply</a>
+                </li>
+            </ul>
+            {{#if replying}}
+            <div id="reply-post-box">
+                <input id="reply-post" type="text" placeholder="Reply to post" />
+                <input id="post-userid" type="hidden" value="{{currentUser._id}}" />
+                <input id="post-parentid" type="hidden" value="{{_id}}" />
+            </div>
+            {{/if}}
+        </div>
+        {{/if}}
 </template>

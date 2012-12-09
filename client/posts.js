@@ -188,9 +188,9 @@ Template.post_item.editing = function () {
   return Session.equals('editing_itemname', this._id);
 };
 
-Template.post_item.replying = function () {
+/*Template.post_item.replying = function () {
   return Session.equals('replying_itemname', this._id);
-};
+};*/
 
 Template.post_item.username = function () {
   if(this.user_id) {
@@ -215,16 +215,16 @@ Template.post_item.events({
     Meteor.flush(); // update DOM before focus
     activateInput(tmpl.find("#post-input"));
   },
-  
-  'click .reply': function (evt, tmpl) {
+
+  /*'click .reply': function (evt, tmpl) {
     evt.preventDefault();
     Session.set('replying_itemname', this._id);
     Meteor.flush(); // update DOM before focus
 	var el = tmpl.find("#reply-post-"+this._id);
     activateInput(el);
 	$(el).toggle();
-  },
-  
+  },*/
+
   'click .remove': function (evt) {
     //var tag = this.tag;
     var id = this.post_id;
@@ -249,33 +249,6 @@ Template.post_item.events(okCancelEvents(
       Session.set('editing_itemname', null);
     }
   }));
-
-  Template.posts.events(okCancelEvents(
-    ('#reply-post-'+Session.get('replying_itemname')),
-    {
-      ok: function (text, evt) {
-        Posts.insert({
-          text: text,
-  		  user_id: currentUserId(),
-          group_id: Session.get('group_id'),
-  		  parent_id: Session.get('replying_itemname'),
-          timestamp: (new Date()).getTime()
-        });
-        evt.target.value = '';
-      }
-    }));
-	
-  Template.post_item.events(okCancelEvents(
-  '#post-reply',
-  {
-    ok: function (value) {
-      Posts.update(this._id, {$set: {text: value}});
-      Session.set('replying_itemname', null);
-    },
-    cancel: function () {
-      Session.set('replying_itemname', null);
-    }
-}));
 
 ////////// Tracking selected group in URL //////////
 

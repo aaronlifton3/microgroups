@@ -81,18 +81,12 @@
 #item-group .post {
     display: block;
     height: 50px;
-    position: relative;
     overflow: hidden;
     border-top: 1px solid #ccc;
 }
 
 #item-group .post .destroy {
     cursor: pointer;
-    position: absolute;
-    left: 5px;
-    top: 15px;
-    height: 20px;
-    width: 20px;
 }
 
 #item-group .post .display, #item-group .post .edit {
@@ -100,7 +94,7 @@
     height: 100%;
     width: auto;
     float: left;
-    padding-top: 18px;
+    padding-top: 20px;
     line-height: 1;
 }
 
@@ -116,20 +110,14 @@
 }
 
 #item-group .post:hover .destroy {
-    background: url('/destroy.png') no-repeat 0 0;
+    background: url('/img/destroy.png') no-repeat 0 0;
 }
 
 #item-group .post .destroy:hover {
     background-position: 0 -20px;
 }
 
-#item-group .post .check {
-    float: left;
-    width: 25px;
-}
-
 #item-group .post .post-text {
-    float: left;
     margin-left: 10px;
     font-size: 100%;
 }
